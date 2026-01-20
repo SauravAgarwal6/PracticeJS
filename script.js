@@ -231,6 +231,7 @@ EXAMPLE :  var name = "John Doe"
 
 // greet()
 
+//! GEC
 // console.log("Start");
 // var a;
 // console.log(a);
@@ -245,18 +246,301 @@ EXAMPLE :  var name = "John Doe"
 // fun();
 // console.log("End");
 
-console.log("start");
-console.log(student);
-var s1 = 100;
-function student() {
-  console.log("I am student");
+// console.log("start");
+// console.log(student);
+// var s1 = 100;
+// function student() {
+//   console.log("I am student");
+// }
+// console.log(trainer);
+// let s2 = 200;
+// console.log(s2);
+// function trainer() {
+//   console.log("I am trainer");
+// }
+// student();
+// trainer();
+// console.log("End");
+
+//! 2) ANONYMOUS FUNCTION : function without name
+// function () {
+//   console.log("I am Anonymous function");
+// }
+
+//! 3) FUNCTION EXPRESSION : its is used to call/invoke anonymous function
+
+// console.log(f1);// ud
+// // f1()
+
+// var f1 = function () {
+//   console.log("I am Anonymous function called by using Function expression");
+// };
+// console.log(f1);// it will print function with body
+// f1() // it will call the function
+
+//! 4) PARAMETERIZED FUNCTION
+// function sum(n1 = 0, n2 = 0) {
+//   console.log(n1 + n2);
+// }
+// sum(10, 20);
+// sum();
+
+// function demo1(n1, n2, n3, n4, n5) {
+//   console.log(n1, n2, n3, n4, n5);
+//   console.log(arguments);
+// }
+// // demo1(10, 20, 30, 40, 50);
+// // demo1(10, 20);
+// demo1(10, 20, 30, 40, 50, 60, 70, 80, 90);
+
+// function printFullName(firstName, lastName , age) {
+//   console.log(`My Name is ${firstName} ${lastName} ${age}`);
+//   console.log("My age is", age);
+
+// }
+// let firstNameInput = prompt("Enter FirstName");
+// let lastNameInput = prompt("Enter LastName");
+// let ageInput = parseInt(prompt("Enter Age"));
+
+// printFullName(firstNameInput, lastNameInput , ageInput);
+
+//! 5) RETURN TYPE FUNCTION
+// function getEmail(fname, lname) {
+//   let fullName = `${fname} ${lname}`;
+//   let email = `${fname}.${lname}@gmail.com`;
+
+//   return [fullName, email];
+// }
+
+// let value = getEmail("john", "doe");
+// console.log(value[0]);
+// console.log(value[1]);
+
+//! 6) NESTED FUNCTION
+// function parent() {
+//   console.log("I am Parent");
+
+//   function child() {
+//     console.log("I am Child");
+//   }
+
+//   child();
+// }
+
+// parent();
+
+//! Closure is 
+// function parent() {
+//   console.log("I am Parent");
+
+//   function child() {
+//     console.log("I am Child");
+//   }
+
+//   child();
+// }
+
+// parent();
+
+
+// debugger;
+// function parent() {
+//   let a1 =100;
+//   console.log("I am Parent");
+
+//   function child() {
+//     let b1= 200;
+//     console.log("I am Child",a1 , b1);
+//   }
+
+//   return child;
+// }
+
+// let val = parent();
+// console.log(val);
+// val();
+
+
+//! 7) Higher Order Function and Call Back Function
+//- A function which passes as an argument to another function is known as CallBack Function
+//- A Function which passes any of these requirement 
+// 1) if a function accepts another function as an argument is known as HOF
+
+// function demo(fn){
+//   fn();
+// }
+// demo(function(){
+//   console.log("Hello")
+// })
+
+// 2) if a function return another function .
+
+// function parent() {
+//   return  function child() {
+//     console.log("I am Child");
+//   }
+
+// }
+
+// let value = parent();
+// value();
+
+// function Demo1(){
+//   console.log("Demo1")
+//   return function demo2(){
+//     console.log("Demo2")
+//   }
+// }
+// Demo1()();  // <--- Js Currying
+
+ // ! 8) Arrow Function -> 
+// let a1 = () => {
+//   console.log("I am Arrow Function 1")
+// }
+// a1();
+
+// //If No Parameter we can replace () with _
+// let a2 = _ =>{
+//   console.log("I am Arraow Fuction 2")
+// }
+// a2();
+
+// // if having a only one parameter paranthesis is not mandatory 
+// let a3 = n1 => {
+//     console.log("I am Arrow Function 3", n1)
+// }
+// a3(100);
+
+// //If having only one line of code currly braket is not mandatory
+// let a4 = _ => console.log("I am Arraow Fuction 2")
+// a4();
+
+// // Explicit return --> {} and return keyword maindatory 
+// let a5 = (n1,n2) =>{
+//   return n1+n2
+// }
+// a5();
+
+// //Implicit return -->  {} and return keyword is not maindatory 
+// let a6 = (n1,n2) => n1+n2
+// a6();
+
+//! 9) Immediatly Invoked Function Expression (IIFE)
+
+// let x = (function () {
+//   console.log("I am a IIFE")
+//   return "Hi";
+// })();
+// console.log(x)
+
+// function demo(){
+//   return "hii"
+// }
+
+//! Constructor function : Used to create objects
+
+
+//! OBJECTS : It is used to store multiple data in the form of key and value pairs
+// 3:-  Ways to create Object 
+
+//!  1)object Literals
+// const obj1 ={
+//   id : 1,
+//   fname : "Saurav",
+// };
+// console.log(obj1)
+//!  2) object contructor
+// const obj2 = new Object({id : 1, fname : "Saurav",});
+// console.log(obj2)
+//!  3) constructor function 
+// function Student(id,firstName){
+//   this.id = id
+//   this.firstName = firstName
+// }
+// let s1 = new Student(1,"James");
+// console.log(first)
+
+//! Crud With Object 
+
+//! Create
+// const obj  ={
+//   id:1,
+//   fname : "jones",
+//   lname : "Doe",
+//   age : 25,
+//   company : "NA"
+// }
+// console.log(obj)
+// //! 2)Read
+// //! there are 2 ways to read
+// //! 1) using dot operator
+
+// console.log(obj.fname) //Jones
+// console.log(obj.degree) //UD
+// //!  2) using square bracket
+
+// let x = "lname"
+// console.log(obj["age"])
+// console.log(obj[x])
+
+// //!for Loop
+// let array = [10,20,30];
+// for (let index = 0; index < array.length; index++) {
+//   const element = array[index];
+//   console.log(element)
+  
+// }
+
+
+// //!for in loop 
+// for (let  i in obj ){
+//   console.log(obj[i])
+// }
+
+// //! Update 
+// obj.company ="TCS";
+// obj.salary =60000;
+// for (let  i in obj ){
+//   console.log(obj[i])
+// }
+// console.log(obj)
+
+// //! Delete 
+// delete obj.salary
+// console.log(obj)
+
+
+//! Object methods
+
+let obj = {
+  id: 1,
+  ename : "Jones Doe"
 }
-console.log(trainer);
-let s2 = 200;
-console.log(s2);
-function trainer() {
-  console.log("I am trainer");
-}
-student();
-trainer();
-console.log("End");
+//! 1) Object.keys()
+let keys = Object.keys(obj)
+console.log(keys) //['id', 'ename']
+
+
+//! 2)Object.Values()
+let values = Object.values(obj)
+console.log(values) // [1, 'Jones Doe']
+// ! 3) Object.entries()
+let keyAndValue = Object.entries(obj)
+console.log(keyAndValue); // [ ['id', 1]], ['ename', 'Jones Doe']]
+// ! 4) Object.fromEntries
+let newObj = Object.fromEntries(keyAndValue)
+console.log(newObj) //{id: 1, ename: 'Jones Doe'}
+
+let obj2 = {
+  id:2,
+  name : {
+    firstName : "Jane",
+    lastName : "Doe",
+  },
+  hobbies: ["Coding", "Singing", "dancing"],
+  address : {
+    city : "Noida",
+    state : "UP",
+    pin : 876541,
+  },
+};
