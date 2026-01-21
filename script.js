@@ -512,28 +512,55 @@ EXAMPLE :  var name = "John Doe"
 
 //! Object methods
 
-let obj = {
-  id: 1,
-  ename : "Jones Doe"
-}
-//! 1) Object.keys()
-let keys = Object.keys(obj)
-console.log(keys) //['id', 'ename']
+// let obj = {
+//   id: 1,
+//   ename : "Jones Doe"
+// }
+// //! 1) Object.keys()
+// let keys = Object.keys(obj)
+// console.log(keys) //['id', 'ename']
 
 
-//! 2)Object.Values()
-let values = Object.values(obj)
-console.log(values) // [1, 'Jones Doe']
-// ! 3) Object.entries()
-let keyAndValue = Object.entries(obj)
-console.log(keyAndValue); // [ ['id', 1]], ['ename', 'Jones Doe']]
-// ! 4) Object.fromEntries
-let newObj = Object.fromEntries(keyAndValue)
-console.log(newObj) //{id: 1, ename: 'Jones Doe'}
+// //! 2)Object.Values()
+// let values = Object.values(obj)
+// console.log(values) // [1, 'Jones Doe']
+// // ! 3) Object.entries()
+// let keyAndValue = Object.entries(obj)
+// console.log(keyAndValue); // [ ['id', 1]], ['ename', 'Jones Doe']]
+// // ! 4) Object.fromEntries
+// let newObj = Object.fromEntries(keyAndValue)
+// console.log(newObj) //{id: 1, ename: 'Jones Doe'}
+
+// let obj2 = {
+//   id:2,
+//   name : {
+//     firstName : "Jane",
+//     lastName : "Doe",
+//   },
+//   hobbies: ["Coding", "Singing", "dancing"],
+//   address : {
+//     city : "Noida",
+//     state : "UP",
+//     pin : 876541,
+//   },
+// };
+// console.log(obj2.name.firstName);
+
+// ! Object Destructuring 
+// let obj1 = {
+//   id:1,
+//   fname:"john",
+//   lname:"Doe"
+// }
+// let {id, lname,fname:firstName = "NA",salary =0} =obj1;
+// console.log(firstName)
+// console.log(lname)
+// console.log(id)
+// console.log(salary)
 
 let obj2 = {
   id:2,
-  name : {
+  Name : {
     firstName : "Jane",
     lastName : "Doe",
   },
@@ -543,4 +570,29 @@ let obj2 = {
     state : "UP",
     pin : 876541,
   },
+  details:{
+    id:"JaneQSP1",
+    course:"Mern Stack",
+  }
 };
+
+let{
+  id,
+  Name: {firstName},
+  hobbies:[, ,h1],
+  address:{city},
+  details:{id:detailsID, course},
+}=obj2;
+
+console.log("Name is ",firstName)
+console.log(id)
+console.log(h1)
+console.log(city)
+console.log(course)
+console.log(detailsID)
+
+// ! Array Destructuring 
+let arr = [10, 20 , 30, 40 ,50];
+let [,n1,n2,]= arr;
+console.log(n1)
+console.log(arr)
