@@ -329,7 +329,7 @@ EXAMPLE :  var name = "John Doe"
 
 // parent();
 
-//! Closure is 
+//! Closure is
 // function parent() {
 //   console.log("I am Parent");
 
@@ -341,7 +341,6 @@ EXAMPLE :  var name = "John Doe"
 // }
 
 // parent();
-
 
 // debugger;
 // function parent() {
@@ -360,10 +359,9 @@ EXAMPLE :  var name = "John Doe"
 // console.log(val);
 // val();
 
-
 //! 7) Higher Order Function and Call Back Function
 //- A function which passes as an argument to another function is known as CallBack Function
-//- A Function which passes any of these requirement 
+//- A Function which passes any of these requirement
 // 1) if a function accepts another function as an argument is known as HOF
 
 // function demo(fn){
@@ -393,35 +391,35 @@ EXAMPLE :  var name = "John Doe"
 // }
 // Demo1()();  // <--- Js Currying
 
- // ! 8) Arrow Function -> 
+// ! 8) Arrow Function ->
 // let a1 = () => {
 //   console.log("I am Arrow Function 1")
 // }
 // a1();
 
-// //If No Parameter we can replace () with _
+// //!If No Parameter we can replace () with _
 // let a2 = _ =>{
 //   console.log("I am Arraow Fuction 2")
 // }
 // a2();
 
-// // if having a only one parameter paranthesis is not mandatory 
+// //! if having a only one parameter paranthesis is not mandatory
 // let a3 = n1 => {
 //     console.log("I am Arrow Function 3", n1)
 // }
 // a3(100);
 
-// //If having only one line of code currly braket is not mandatory
+// //!If having only one line of code currly braket is not mandatory
 // let a4 = _ => console.log("I am Arraow Fuction 2")
 // a4();
 
-// // Explicit return --> {} and return keyword maindatory 
+// //! Explicit return --> {} and return keyword maindatory
 // let a5 = (n1,n2) =>{
 //   return n1+n2
 // }
 // a5();
 
-// //Implicit return -->  {} and return keyword is not maindatory 
+// //!Implicit return -->  {} and return keyword is not maindatory
 // let a6 = (n1,n2) => n1+n2
 // a6();
 
@@ -439,9 +437,8 @@ EXAMPLE :  var name = "John Doe"
 
 //! Constructor function : Used to create objects
 
-
 //! OBJECTS : It is used to store multiple data in the form of key and value pairs
-// 3:-  Ways to create Object 
+// 3:-  Ways to create Object
 
 //!  1)object Literals
 // const obj1 ={
@@ -452,7 +449,7 @@ EXAMPLE :  var name = "John Doe"
 //!  2) object contructor
 // const obj2 = new Object({id : 1, fname : "Saurav",});
 // console.log(obj2)
-//!  3) constructor function 
+//!  3) constructor function
 // function Student(id,firstName){
 //   this.id = id
 //   this.firstName = firstName
@@ -460,7 +457,7 @@ EXAMPLE :  var name = "John Doe"
 // let s1 = new Student(1,"James");
 // console.log(first)
 
-//! Crud With Object 
+//! Crud With Object
 
 //! Create
 // const obj  ={
@@ -488,16 +485,15 @@ EXAMPLE :  var name = "John Doe"
 // for (let index = 0; index < array.length; index++) {
 //   const element = array[index];
 //   console.log(element)
-  
+
 // }
 
-
-// //!for in loop 
+// //!for in loop
 // for (let  i in obj ){
 //   console.log(obj[i])
 // }
 
-// //! Update 
+// //! Update
 // obj.company ="TCS";
 // obj.salary =60000;
 // for (let  i in obj ){
@@ -505,10 +501,9 @@ EXAMPLE :  var name = "John Doe"
 // }
 // console.log(obj)
 
-// //! Delete 
+// //! Delete
 // delete obj.salary
 // console.log(obj)
-
 
 //! Object methods
 
@@ -520,14 +515,13 @@ EXAMPLE :  var name = "John Doe"
 // let keys = Object.keys(obj)
 // console.log(keys) //['id', 'ename']
 
-
 // //! 2)Object.Values()
 // let values = Object.values(obj)
 // console.log(values) // [1, 'Jones Doe']
-// // ! 3) Object.entries()
+// //! 3) Object.entries()
 // let keyAndValue = Object.entries(obj)
 // console.log(keyAndValue); // [ ['id', 1]], ['ename', 'Jones Doe']]
-// // ! 4) Object.fromEntries
+// //! 4) Object.fromEntries
 // let newObj = Object.fromEntries(keyAndValue)
 // console.log(newObj) //{id: 1, ename: 'Jones Doe'}
 
@@ -546,7 +540,7 @@ EXAMPLE :  var name = "John Doe"
 // };
 // console.log(obj2.name.firstName);
 
-// ! Object Destructuring 
+// ! Object Destructuring
 // let obj1 = {
 //   id:1,
 //   fname:"john",
@@ -558,41 +552,84 @@ EXAMPLE :  var name = "John Doe"
 // console.log(id)
 // console.log(salary)
 
-let obj2 = {
-  id:2,
-  Name : {
-    firstName : "Jane",
-    lastName : "Doe",
+// let obj2 = {
+//   id:2,
+//   Name : {
+//     firstName : "Jane",
+//     lastName : "Doe",
+//   },
+//   hobbies: ["Coding", "Singing", "dancing"],
+//   address : {
+//     city : "Noida",
+//     state : "UP",
+//     pin : 876541,
+//   },
+//   details:{
+//     id:"JaneQSP1",
+//     course:"Mern Stack",
+//   }
+// };
+
+// let{
+//   id,
+//   Name: {firstName},
+//   hobbies:[, ,h1],
+//   address:{city},
+//   details:{id:detailsID, course},
+// }=obj2;
+
+// console.log("Name is ",firstName)
+// console.log(id)
+// console.log(h1)
+// console.log(city)
+// console.log(course)
+// console.log(detailsID)
+
+// //! Array Destructuring
+// let arr = [10, 20 , 30, 40 ,50];
+// let [,n1,n2,]= arr;
+// console.log(n1)
+// console.log(arr)
+
+const user = {
+  id: 1,
+  name: "Leanne Graham",
+  username: "Bret",
+  email: "Sincere@april.biz",
+  address: {
+    street: "Kulas Light",
+    suite: "Apt. 556",
+    city: "Gwenborough",
+    zipcode: "92998-3874",
+    geo: {
+      lat: "-37.3159",
+      lng: "81.1496",
+    },
   },
-  hobbies: ["Coding", "Singing", "dancing"],
-  address : {
-    city : "Noida",
-    state : "UP",
-    pin : 876541,
+  phone: "1-770-736-8031 x56442",
+  website: "hildegard.org",
+  company: {
+    name: "Romaguera-Crona",
+    catchPhrase: "Multi-layered client-server neural-net",
+    bs: "harness real-time e-markets",
   },
-  details:{
-    id:"JaneQSP1",
-    course:"Mern Stack",
-  }
 };
 
-let{
-  id,
-  Name: {firstName},
-  hobbies:[, ,h1],
-  address:{city},
-  details:{id:detailsID, course},
-}=obj2;
-
-console.log("Name is ",firstName)
-console.log(id)
-console.log(h1)
-console.log(city)
-console.log(course)
-console.log(detailsID)
-
-// ! Array Destructuring 
-let arr = [10, 20 , 30, 40 ,50];
-let [,n1,n2,]= arr;
-console.log(n1)
-console.log(arr)
+// name, username,street,zipcode,lat, lng, companyname
+let {
+  name:Name,
+  username,
+  address: {
+    street,
+    zipcode,
+    geo: { lat, lng },
+  },
+  company: { name: companyName },
+} = user;
+console.log(Name)
+console.log(username)
+console.log(street)
+console.log(zipcode)
+console.log(lat)
+console.log(lng)
+console.log(companyName)
