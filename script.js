@@ -591,45 +591,169 @@ EXAMPLE :  var name = "John Doe"
 // console.log(n1)
 // console.log(arr)
 
-const user = {
-  id: 1,
-  name: "Leanne Graham",
-  username: "Bret",
-  email: "Sincere@april.biz",
-  address: {
-    street: "Kulas Light",
-    suite: "Apt. 556",
-    city: "Gwenborough",
-    zipcode: "92998-3874",
-    geo: {
-      lat: "-37.3159",
-      lng: "81.1496",
-    },
-  },
-  phone: "1-770-736-8031 x56442",
-  website: "hildegard.org",
-  company: {
-    name: "Romaguera-Crona",
-    catchPhrase: "Multi-layered client-server neural-net",
-    bs: "harness real-time e-markets",
-  },
-};
+// const user = {
+//   id: 1,
+//   name: "Leanne Graham",
+//   username: "Bret",
+//   email: "Sincere@april.biz",
+//   address: {
+//     street: "Kulas Light",
+//     suite: "Apt. 556",
+//     city: "Gwenborough",
+//     zipcode: "92998-3874",
+//     geo: {
+//       lat: "-37.3159",
+//       lng: "81.1496",
+//     },
+//   },
+//   phone: "1-770-736-8031 x56442",
+//   website: "hildegard.org",
+//   company: {
+//     name: "Romaguera-Crona",
+//     catchPhrase: "Multi-layered client-server neural-net",
+//     bs: "harness real-time e-markets",
+//   },
+// };
 
-// name, username,street,zipcode,lat, lng, companyname
-let {
-  name:Name,
-  username,
-  address: {
-    street,
-    zipcode,
-    geo: { lat, lng },
-  },
-  company: { name: companyName },
-} = user;
-console.log(Name)
-console.log(username)
-console.log(street)
-console.log(zipcode)
-console.log(lat)
-console.log(lng)
-console.log(companyName)
+// // name, username,street,zipcode,lat, lng, companyname
+// let {
+//   name:Name,
+//   username,
+//   address: {
+//     street,
+//     zipcode,
+//     geo: { lat, lng },
+//   },
+//   company: { name: companyName },
+// } = user;
+// console.log(Name)
+// console.log(username)
+// console.log(street)
+// console.log(zipcode)
+// console.log(lat)
+// console.log(lng)
+// console.log(companyName)
+
+
+// let student = {
+//   id: 1,
+//   fname: "john",
+//   lname: "doe",
+//   getFullName: function () {
+//     console.log(`${this.fname} ${this.lname}`);
+//   },
+//   getEmail() {
+//     console.log(`${this.fname}.${this.lname}@gmail.com`);
+//   },
+// };
+
+// student.getFullName();
+// student.getEmail();
+
+// function getFullName() {
+//   return `${this.firstName} ${this.lastName}`;
+// }
+
+// function getCourseDetails(sub1, sub2) {
+//   return `${this.course} includes ${sub1} ${sub2}`;
+// }
+
+// let user1 = {
+//   id: 1,
+//   firstName: "Jane",
+//   lastName: "Doe",
+//   course: "Mern Stack",
+// };
+
+// let user2 = {
+//   id: 2,
+//   firstName: "James",
+//   lastName: "Carry",
+//   course: "Java Full Stack",
+// };
+
+// console.log(user1);
+// console.log(user2);
+
+// //! call() : immediately calls the function
+// let fullName1 = getFullName.call(user1);
+// console.log(fullName1);
+
+// let courseDetails1 = getCourseDetails.call(user1, "JS", "NodeJS");
+// console.log(courseDetails1);
+
+// //! apply() : immediately calls the function
+// let fullName2 = getFullName.apply(user2);
+// console.log(fullName2);
+
+// let courseDetails2 = getCourseDetails.apply(user2, ["Java", "SpringBoot"]);
+// console.log(courseDetails2);
+
+// //! bind() : returns bounded function which can be called later on
+// let boundedGetFullName = getFullName.bind(user1);
+// console.log(boundedGetFullName());
+
+// let boundedCouseDetails = getCourseDetails.bind(user1);
+// console.log(boundedCouseDetails("HTML", "NODE JS"));
+
+
+
+//! javascript Object Notation (JSON)
+
+let user1 = {
+  id:1,
+  fname:"saurav",
+  lname :"Agarwal"
+}
+
+function storeDataInLocalStorage(){
+  let jsonData = JSON.stringify(user1); //Js to JSON
+  localStorage.setItem("usersData", jsonData);
+}
+
+function getsDataInLocalStorage(){
+  let data = localStorage.getItem("usersData");
+  let userObject = JSON.parse(data);
+  console.log(userObject);
+  document.writeln(`<em> ${userObject.fname}</em>`)
+}
+
+function removeSingleDataFromLocalStorage(){
+  localStorage.removeItem("usersData")
+}
+
+function clearDataFromLocalStorage(){
+  localStorage.clear();
+}
+
+//! Arrays:hetrogenous in nature
+
+// 1) Array Literals
+// let arr1 = [10,"bye", false,()=>{},1n,function(){}];//here 10 is element
+// console.log(arr1);
+
+// 2) Array Constructor
+// let arr2 = new Array(10); //here 10 is size if single number pass
+// console.log(arr2)
+// let arr3 = new Array(10,"bye", false,()=>{},1n,function(){});
+// console.log(arr3)
+// console.log(arr1.length)
+
+//! Array Methods 
+let arr1= [10,20,30];
+
+//! array.push : - Appends new elements to the end of an array, and returns the new length of the array
+arr1.push(40);
+console.log(arr1)
+
+// ! array.pop :- Removes the last element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.
+arr1.pop();
+console.log(arr1)
+
+// ! arr1.unshift():- Inserts new elements at the start of an array, and returns the new length of the array.
+arr1.unshift("Hello",100);
+console.log(arr1)
+
+// ! arr1.shift():- Removes the first element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.
+arr1.shift();
+console.log(arr1)
