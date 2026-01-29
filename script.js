@@ -75,7 +75,7 @@ EXAMPLE :  var name = "John Doe"
 // console.log(n2, n3); // Hello World
 // console.log(typeof n3); // string
 
-// // `` using backticks we can write multi-line strings and we can use string interpolation using ${}
+// `` using backticks we can write multi-line strings and we can use string interpolation using ${}
 // var n4 = `Hey There !!!
 // Lets go to javascript ${n3} `;
 // console.log(n4);
@@ -135,10 +135,10 @@ EXAMPLE :  var name = "John Doe"
 // console.log(c); // 100
 // let d = 200
 // console.log(d); // 200
-// // let c ;//! Cannot redeclare
+//! // let c ;//! Cannot redeclare
 // d = 300
 // console.log(d); // 300
-// // let d = 400 //! Cannot redeclare and reinitialize
+//! // let d = 400 //! Cannot redeclare and reinitialize
 
 // //! declare and initialize at same time
 // const e = 1000
@@ -203,7 +203,7 @@ EXAMPLE :  var name = "John Doe"
 //   const z = 30; // LOCAL VARIABLE - BLOCK SCOPE
 // }
 // console.log(x); // 10
-// // console.log(y); //! ReferenceError: y is not defined
+//! // console.log(y); //! ReferenceError: y is not defined
 
 // for (let i = 0; i < 5; i++) {}
 
@@ -329,27 +329,29 @@ EXAMPLE :  var name = "John Doe"
 
 // parent();
 
-//! Closure is
+//! Closure is a temporary memory which is created whenever we try to access paraent function's property inside child function and it contains only those properties that child function required.
+
+// debugger
 // function parent() {
-//   console.log("I am Parent");
+//   let a1 = 100;
+//   console.log("I am Parent", a1);
 
 //   function child() {
-//     console.log("I am Child");
+//     let b1 = 200;
+//     console.log("I am Child", b1, a1); // we can access a1, due to closure
 //   }
-
 //   child();
 // }
-
 // parent();
 
 // debugger;
 // function parent() {
-//   let a1 =100;
-//   console.log("I am Parent");
+//   let a1 = 100;
+//   console.log("I am Parent", a1);
 
 //   function child() {
-//     let b1= 200;
-//     console.log("I am Child",a1 , b1);
+//     let b1 = 200;
+//     console.log("I am Child", b1, a1);
 //   }
 
 //   return child;
@@ -359,237 +361,235 @@ EXAMPLE :  var name = "John Doe"
 // console.log(val);
 // val();
 
-//! 7) Higher Order Function and Call Back Function
-//- A function which passes as an argument to another function is known as CallBack Function
-//- A Function which passes any of these requirement
-// 1) if a function accepts another function as an argument is known as HOF
+//! 7) HIGHER ORDER FUNCTION AND CALLBACK FUNCTION
+// - A function which passes as an arguement to another function is known as Callback Function
 
-// function demo(fn){
+// - A function which passes any of these requirements
+// 1) if a function accepts another function as an arguement is known as HOF
+// function demo(fn) {
 //   fn();
 // }
-// demo(function(){
-//   console.log("Hello")
-// })
+// demo(function () {
+//   console.log("Hii");
+// });
 
-// 2) if a function return another function .
-
-// function parent() {
-//   return  function child() {
-//     console.log("I am Child");
-//   }
-
+//! // 2) if a function returns another function is known as HOF
+// function Parent() {
+//   return function Child() {
+//     console.log("Hello");
+//   };
 // }
+// let val = Parent();
+// val();
 
-// let value = parent();
-// value();
-
-// function Demo1(){
-//   console.log("Demo1")
-//   return function demo2(){
-//     console.log("Demo2")
-//   }
+// function Demo1() {
+//   console.log("Demo 1");
+//   return function Demo2() {
+//     console.log("Demo 2");
+//     return function Demo3() {
+//       console.log("Demo 3");
+//     };
+//   };
 // }
-// Demo1()();  // <--- Js Currying
+// Demo1()()(); // <--- JS CURRYING
 
-// ! 8) Arrow Function ->
+//! 8) ARROW FUNCTION
 // let a1 = () => {
-//   console.log("I am Arrow Function 1")
-// }
+//   console.log("I am Arrow function 1");
+// };
 // a1();
 
-// //!If No Parameter we can replace () with _
-// let a2 = _ =>{
-//   console.log("I am Arraow Fuction 2")
-// }
+// // if no parameter, we can replace () with _
+// let a2 = (_) => {
+//   console.log("I am Arrow function 2");
+// };
 // a2();
 
-// //! if having a only one parameter paranthesis is not mandatory
-// let a3 = n1 => {
-//     console.log("I am Arrow Function 3", n1)
-// }
+// // if having only one parameter, () is not mandatory
+// let a3 = (n1) => {
+//   console.log("I am Arrow function 3", n1);
+// };
 // a3(100);
 
-// //!If having only one line of code currly braket is not mandatory
-// let a4 = _ => console.log("I am Arraow Fuction 2")
+// // if having only one line of code {} is not mandatory
+// let a4 = () => console.log("I am Arrow function 4");
 // a4();
 
-// //! Explicit return --> {} and return keyword maindatory
-// let a5 = (n1,n2) =>{
-//   return n1+n2
-// }
-// a5();
-
-// //!Implicit return -->  {} and return keyword is not maindatory
-// let a6 = (n1,n2) => n1+n2
-// a6();
-
-//! 9) Immediatly Invoked Function Expression (IIFE)
-
-// let x = (function () {
-//   console.log("I am a IIFE")
-//   return "Hi";
-// })();
-// console.log(x)
-
-// function demo(){
-//   return "hii"
-// }
-
-//! Constructor function : Used to create objects
-
-//! OBJECTS : It is used to store multiple data in the form of key and value pairs
-// 3:-  Ways to create Object
-
-//!  1)object Literals
-// const obj1 ={
-//   id : 1,
-//   fname : "Saurav",
+// // explicit return, {} and "return" keyword is mandatory
+// let a5 = (n1, n2) => {
+//   return n1 + n2;
 // };
-// console.log(obj1)
-//!  2) object contructor
-// const obj2 = new Object({id : 1, fname : "Saurav",});
-// console.log(obj2)
-//!  3) constructor function
-// function Student(id,firstName){
-//   this.id = id
-//   this.firstName = firstName
+// console.log(a5(10, 20));
+
+// // implicit return , {} and "return" keyword is not required
+// let a6 = (n1, n2) => n1 + n2;
+// console.log(a6(5, 10));
+
+//! 9) IMMEDIATLY INVOCKED FUNCTION EXPRESSION ( IIFE )
+// let x = (function () {
+//   console.log("I am IIFE");
+//   return "Hii";
+// })();
+// console.log(x); // Hii
+
+// function demo() {
+//   return "Hi";
 // }
-// let s1 = new Student(1,"James");
-// console.log(first)
+// let val = demo();
 
-//! Crud With Object
+//! 10) CONSTRUCTOR FUNCTION : used to create objects
 
-//! Create
-// const obj  ={
-//   id:1,
-//   fname : "jones",
-//   lname : "Doe",
-//   age : 25,
-//   company : "NA"
+//! OBJECTS : it is used to store multiple data in the form of key and value pairs
+// There are 3 ways to create object:-
+// //! 1) Object literals
+// const obj1 = { id: 1, fname: "John" };
+// console.log(obj1);
+
+// //! 2) Object Constructor
+// const obj2 = new Object({ id: 2, fname: "Jane" });
+// console.log(obj2);
+
+// //! 3) Constructor Function
+// function Student(id, firstName) {
+//   this.id = id;
+//   this.firstName = firstName;
 // }
-// console.log(obj)
-// //! 2)Read
-// //! there are 2 ways to read
-// //! 1) using dot operator
+// let s1 = new Student(1, "James");
+// console.log(s1);
+// let s2 = new Student(2, "Clark");
+// console.log(s2);
 
-// console.log(obj.fname) //Jones
-// console.log(obj.degree) //UD
-// //!  2) using square bracket
+//! CRUD WITH OBJECTS
 
-// let x = "lname"
-// console.log(obj["age"])
-// console.log(obj[x])
+// //! 1) CREATE
+// const obj = {
+//   id: 1,
+//   fname: "John",
+//   lname: "Doe",
+//   age: 25,
+//   company: "NA",
+// };
+// console.log(obj);
 
-// //!for Loop
-// let array = [10,20,30];
-// for (let index = 0; index < array.length; index++) {
-//   const element = array[index];
-//   console.log(element)
+// //! 2) READ
+// // there are 2 ways to read
+// // 1) using dot operator
 
+// console.log(obj.fname); // John
+// console.log(obj.degree); // ud
+
+// // 2) using square brackets
+
+// let x = "lname";
+// console.log(obj["age"]); // 25
+// console.log(obj[x]); // Doe
+
+// // for in loop
+// for (let i in obj) {
+//   console.log(i, obj[i]);
 // }
 
-// //!for in loop
-// for (let  i in obj ){
-//   console.log(obj[i])
-// }
+// //! UPDATE
+// obj.company = "TCS"
+// console.log(obj);
 
-// //! Update
-// obj.company ="TCS";
-// obj.salary =60000;
-// for (let  i in obj ){
-//   console.log(obj[i])
-// }
-// console.log(obj)
+// //! ADD NEW KEY
+// obj.salary = 60000
+// console.log(obj);
 
-// //! Delete
+// //! DELETE
 // delete obj.salary
-// console.log(obj)
+// console.log(obj);
 
-//! Object methods
-
+//! OBJECT METHODS
 // let obj = {
 //   id: 1,
-//   ename : "Jones Doe"
-// }
+//   ename: "John Doe",
+// };
+
 // //! 1) Object.keys()
-// let keys = Object.keys(obj)
-// console.log(keys) //['id', 'ename']
+// let keys = Object.keys(obj);
+// console.log(keys); // ["id" , "ename"]
 
-// //! 2)Object.Values()
-// let values = Object.values(obj)
-// console.log(values) // [1, 'Jones Doe']
+// //! 2) Object.values()
+// let values = Object.values(obj);
+// console.log(values); // [1 , "John Doe"]
+
 // //! 3) Object.entries()
-// let keyAndValue = Object.entries(obj)
-// console.log(keyAndValue); // [ ['id', 1]], ['ename', 'Jones Doe']]
-// //! 4) Object.fromEntries
-// let newObj = Object.fromEntries(keyAndValue)
-// console.log(newObj) //{id: 1, ename: 'Jones Doe'}
+// let keyAndValue = Object.entries(obj);
+// console.log(keyAndValue); // [ ["id" , 1]  , ["ename" , "John Doe"]]
+
+// //! 4) Object.fromEntries()
+// let newObj = Object.fromEntries(keyAndValue);
+// console.log(newObj); // {id: 1, ename: 'John Doe'}
 
 // let obj2 = {
-//   id:2,
-//   name : {
-//     firstName : "Jane",
-//     lastName : "Doe",
+//   id: 2,
+//   name: {
+//     firstName: "Jane",
+//     lastName: "Doe",
 //   },
-//   hobbies: ["Coding", "Singing", "dancing"],
-//   address : {
-//     city : "Noida",
-//     state : "UP",
-//     pin : 876541,
+//   hobbies: ["coding", "singing", "dancing"],
+//   address: {
+//     city: "Noida",
+//     state: "UP",
+//     pin: 876541,
 //   },
 // };
-// console.log(obj2.name.firstName);
 
-// ! Object Destructuring
+// console.log(obj2.name.firstName); //  Jane
+// console.log(obj2.hobbies[0]); // coding
+// console.log(obj2.address.state); // UP
+
+// ! OBJECT DESTRUCTURING
+
 // let obj1 = {
-//   id:1,
-//   fname:"john",
-//   lname:"Doe"
-// }
-// let {id, lname,fname:firstName = "NA",salary =0} =obj1;
-// console.log(firstName)
-// console.log(lname)
-// console.log(id)
-// console.log(salary)
-
-// let obj2 = {
-//   id:2,
-//   Name : {
-//     firstName : "Jane",
-//     lastName : "Doe",
-//   },
-//   hobbies: ["Coding", "Singing", "dancing"],
-//   address : {
-//     city : "Noida",
-//     state : "UP",
-//     pin : 876541,
-//   },
-//   details:{
-//     id:"JaneQSP1",
-//     course:"Mern Stack",
-//   }
+//   id: 1,
+//   fname: "John",
+//   lname: "Doe",
 // };
 
-// let{
+// let { fname: firstName = "NA", lname, id, salary = 0 } = obj1;
+
+// console.log(firstName);
+// console.log(lname);
+// console.log(id);
+// console.log(salary);
+
+// let obj2 = {
+//   id: 2,
+//   Name: {
+//     firstName: "Jane",
+//     lastName: "Doe",
+//   },
+//   hobbies: ["coding", "singing", "dancing"],
+//   address: {
+//     city: "Noida",
+//     state: "UP",
+//     pin: 876541,
+//   },
+//   details: {
+//     id: "JaneQSP1",
+//     course: "Mern Stack",
+//   },
+// };
+
+// id,firstName,coding,city,id,course
+
+// let {
 //   id,
-//   Name: {firstName},
-//   hobbies:[, ,h1],
-//   address:{city},
-//   details:{id:detailsID, course},
-// }=obj2;
+//   Name: { firstName },
+//   hobbies: [, , h3],
+//   address: { city },
+//   details: { id: detailID, course },
+// } = obj2;
 
-// console.log("Name is ",firstName)
-// console.log(id)
-// console.log(h1)
-// console.log(city)
-// console.log(course)
-// console.log(detailsID)
+// console.log(id, firstName, h3, city, detailID, course);
 
-// //! Array Destructuring
-// let arr = [10, 20 , 30, 40 ,50];
-// let [,n1,n2,]= arr;
-// console.log(n1)
-// console.log(arr)
+// //! ARRAY DESTRUCTURING
+// let arr = [10, 20, 30, 40, 50];
+// let [, n1, , n2] = arr;
+// console.log(n1, n2);
 
 // const user = {
 //   id: 1,
@@ -615,9 +615,10 @@ EXAMPLE :  var name = "John Doe"
 //   },
 // };
 
-// // name, username,street,zipcode,lat, lng, companyname
+// name ,username ,street ,zipcode ,lat , lng,companyName ,
+
 // let {
-//   name:Name,
+//   name,
 //   username,
 //   address: {
 //     street,
@@ -626,14 +627,14 @@ EXAMPLE :  var name = "John Doe"
 //   },
 //   company: { name: companyName },
 // } = user;
-// console.log(Name)
-// console.log(username)
-// console.log(street)
-// console.log(zipcode)
-// console.log(lat)
-// console.log(lng)
-// console.log(companyName)
 
+//! "this" keyword
+
+// console.log(window); // GLOBAL OBJECT
+// console.log(this); // POINTS TO WINDOW OBJECT
+
+// //! HOW TO CREATE YOUR OWN METHOD
+// //! NOTE : DONT USE ARROW FUNC TO CREATE METHOD BCOZ "this" KEYWORD REFERS TO WINDOW OBJECT
 
 // let student = {
 //   id: 1,
@@ -649,6 +650,8 @@ EXAMPLE :  var name = "John Doe"
 
 // student.getFullName();
 // student.getEmail();
+
+//! call() , apply() and bind()
 
 // function getFullName() {
 //   return `${this.firstName} ${this.lastName}`;
@@ -696,64 +699,148 @@ EXAMPLE :  var name = "John Doe"
 // let boundedCouseDetails = getCourseDetails.bind(user1);
 // console.log(boundedCouseDetails("HTML", "NODE JS"));
 
+//! SCOPES REVISION
 
+//!  - GLOBAL SCOPE AND SCRIPT SCOPE :
+//  - WHENEVER WE DECLARE GLOBAL VARIABLES GLOBAL SCOPE AND SCRIPT SCOPE CREATES
+//  - IN GLOBAL SCOPE WE CAN SEE "var" VARIABLES AND FUNCTION DECALRATIONS
+//  - IN SCRIPT SCOPE WE CAN SEE "let" and "const" VARIABLES, DUE TO TDZ
 
-//! javascript Object Notation (JSON)
+//! - BLOCK SCOPE :
+//  - WHENEVER WE DECLARE "let" AND "const" VARIABLES INSIDE CONDITIONAL OR LOOPING STATEMENT THOSE VARIABLES WILL ACT AS LOCAL VARIABLES AND HAVING BLOCK SCOPE
+//! - NOTE: "var" VARIABLES WILL ACT AS GLOBAL VARIABLE AND HAVING GLOBAL SCOPE WITHIN CONDITIONAL OR LOOPING STATEMENT
 
-let user1 = {
-  id:1,
-  fname:"saurav",
-  lname :"Agarwal"
-}
+//! - LOCAL SCOPE :
+//  - WHENEVER WE DECLARE "var", "let" OR "const" VARIABLES INSIDE A FUNCTION , IT WILL ACT AS LOCAL VARIABLES HAVING LOCAL SCOPE
 
-function storeDataInLocalStorage(){
-  let jsonData = JSON.stringify(user1); //Js to JSON
-  localStorage.setItem("usersData", jsonData);
-}
+//! - FUNCTION SCOPE :
+//  - "var" VARIABLES ARE KNOWN AS FUNCTION SCOPE VARIABLES BECOZ IT ACTS LIKE LOCAL VARIABLE INSIDE A FUNCTION
 
-function getsDataInLocalStorage(){
-  let data = localStorage.getItem("usersData");
-  let userObject = JSON.parse(data);
-  console.log(userObject);
-  document.writeln(`<em> ${userObject.fname}</em>`)
-}
+//! JAVASCRIPT OBJECT NOTATION (JSON)
+// let user1 = {
+//   id: 1,
+//   fname: "John",
+//   lname: "Doe",
+// };
 
-function removeSingleDataFromLocalStorage(){
-  localStorage.removeItem("usersData")
-}
+// function storeDataInLocalStorage() {
+//   let jsonData = JSON.stringify(user1); // JS TO JSON
+//   localStorage.setItem("usersData", jsonData);
+// }
 
-function clearDataFromLocalStorage(){
-  localStorage.clear();
-}
+// function getDataFromLocalStorage() {
+//   let data = localStorage.getItem("usersData");
+//   let userObject = JSON.parse(data); // JSON TO JS
+//   console.log(userObject);
+//   document.writeln(`<em>${userObject.fname}</em>`);
+// }
 
-//! Arrays:hetrogenous in nature
+// function removeSingleDataFromLocalStorage() {
+//   localStorage.removeItem("demo1");
+// }
+
+// function clearDataFromLocalStorage() {
+//   localStorage.clear();
+// }
+
+//! ARRAYS : hetrogenous in nature
 
 // 1) Array Literals
-// let arr1 = [10,"bye", false,()=>{},1n,function(){}];//here 10 is element
+// let arr1 = [10, true, "Hello World", () => {}, null, 1n, undefined];
 // console.log(arr1);
 
 // 2) Array Constructor
-// let arr2 = new Array(10); //here 10 is size if single number pass
-// console.log(arr2)
-// let arr3 = new Array(10,"bye", false,()=>{},1n,function(){});
-// console.log(arr3)
-// console.log(arr1.length)
+// let arr2 = new Array(10, false, "Bye", function () {});
+// console.log(arr2);
 
-//! Array Methods 
-let arr1= [10,20,30];
+//! ARRAY METHODS
+// let arr1 = [10, 20, 30, 40];
+// console.log(arr1); // [10,20,30,40]
 
-//! array.push : - Appends new elements to the end of an array, and returns the new length of the array
-arr1.push(40);
-console.log(arr1)
+// //! array.push() : Appends new elements to the end of an array, and returns the new length of the array.
 
-// ! array.pop :- Removes the last element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.
-arr1.pop();
-console.log(arr1)
+// let newLength = arr1.push(50, 60, 70);
+// console.log(arr1); // [10,20,30,40,50, 60, 70]
+// console.log(newLength); // 7 <-- new length of arr1
 
-// ! arr1.unshift():- Inserts new elements at the start of an array, and returns the new length of the array.
-arr1.unshift("Hello",100);
-console.log(arr1)
+// //! array.pop() : Removes the last element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.
+// let retrunVal = arr1.pop();
+// console.log(arr1); // [10,20,30,40,50, 60]
+// console.log(retrunVal); // 70
 
-// ! arr1.shift():- Removes the first element from an array and returns it. If the array is empty, undefined is returned and the array is not modified.
-arr1.shift();
-console.log(arr1)
+// //! array.unshift()
+// let newLength2 = arr1.unshift("Hello", 100);
+// console.log(arr1); // ["Hello",100,10,20,30,40,50, 60]
+// console.log(newLength2); // 8
+
+// //! array.shift()
+// let retrunVal2 = arr1.shift();
+// console.log(arr1); // [100,10,20,30,40,50, 60]
+// console.log(retrunVal2); // "Hello"
+
+//! splice( startIndex , deleteCount , newElements)
+// let arr2 = [100, 200, 300, 400];
+// console.log(arr2); // [100, 200, 300, 400]
+
+// //! ADD NEW ELEMENT
+// arr2.splice(3, 0, 350);
+// console.log(arr2); // [100, 200, 300, 350, 400]
+
+// arr2.splice(2, 0, 250);
+// console.log(arr2); //  [100, 200, 250, 300, 350, 400]
+
+// //! DELETE ELEMENT
+// arr2.splice(2, 3);
+// console.log(arr2); // [100, 200, 400]
+
+// let arr3 = [1000, 2000, 3000, 4000];
+// arr3.splice(0, 3);
+// console.log(arr3); // [4000]
+
+// //! DELETE AND ADD
+// let arr4 = [100, 200, 300, 400, 500, 600];
+// arr4.splice(2, 2, 1000, 2000);
+// console.log(arr4); // [100, 200, 1000, 2000, 500, 600]
+
+// //! slice( startIndex, endIndex )
+// //          -6  -5  -4  -3  -2  -1
+// let arr5 = [10, 20, 30, 40, 50, 60];
+// //           0   1   2   3   4   5
+// console.log(arr5);
+
+// let newArr1 = arr5.slice(1, 4);
+// console.log(newArr1);
+
+// let newArr2 = arr5.slice(2);
+// console.log(newArr2);
+
+// let newArr3 = arr5.slice(-2, 3);
+// console.log(newArr3);
+
+// ! sort()
+// let arr6 = [9, 5, 2, 1, 0, 4, 7];
+// arr6.sort(); // ASC
+// console.log(arr6);
+
+// LEXOGRAPHICAL SORTING
+// let arr7 = [90, 5, 67, 45, 1, 78, 26];
+// arr7.sort();
+// console.log(arr7); //  [1, 26, 45, 5, 67, 78, 90]
+
+// let arr8 = [80, 615, 49, 31, 10, 38];
+// arr8.sort((a, b) => a - b);
+// console.log(arr8); // [10, 31, 38, 49, 80, 615]
+
+//! concat()
+// let arr9 = [10, 20, 30];
+// let arr10 = [40, 50, 60];
+// let concatinatedArr = arr9.concat(arr10);
+// console.log(concatinatedArr); // [10, 20, 30, 40, 50, 60]
+
+let arr = [1, 2, 3, 4, 5, 6];
+for (let index = -2; index < arr.length; index++) {
+  console.log(index , arr[index]);
+  // console.log(arr.slice(index));
+  
+}
+console.log(arr[-2]);
