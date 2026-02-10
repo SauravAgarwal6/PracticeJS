@@ -57,8 +57,11 @@ EXAMPLE :  var name = "John Doe"
 //! MUTABLE AND IMMUTABLE EXAMPLE
 
 // var str = "HELLO";
-// str[0] = "X";
+// console.log(str[0])// H
+// console.log(str[0] = "X") ;
 // console.log(str); // immutable, cannot change
+// str = "Xello"
+// console.log(str)
 
 // var arr = [10, 20, 30, 40, 50];
 // arr[0] = 100;
@@ -837,10 +840,303 @@ EXAMPLE :  var name = "John Doe"
 // let concatinatedArr = arr9.concat(arr10);
 // console.log(concatinatedArr); // [10, 20, 30, 40, 50, 60]
 
-let arr = [1, 2, 3, 4, 5, 6];
-for (let index = -2; index < arr.length; index++) {
-  console.log(index , arr[index]);
-  // console.log(arr.slice(index));
-  
-}
-console.log(arr[-2]);
+// let arr = [1, 2, 3, 4, 5, 6];
+// for (let index = -2; index < arr.length; index++) {
+//   console.log(index , arr[index]);
+// console.log(arr.slice(index));
+
+// }
+// console.log(arr[-2]);
+
+// ! Advance Array Method
+
+// let arr1 = [10, 20, 30, 40, 50];
+
+//! for Each( callbackFunc ):- Performs the specified action for each element in an array.
+// ! it not return any thing
+// console.log("---------- For Each ---------")
+// let returnForEach = arr1.forEach((element, index, array) => {
+//   console.log(element, index, array);
+//   return element + 5;
+// });
+// console.log(returnForEach);
+// console.log("----------------------------------");
+
+// //! map(callbackFunc ) :- Calls a defined callback function on each element of an array, and returns an new array that contains the results.
+// console.log("---------- Map ---------------")
+
+// let returnMap = arr1.map((element, index, array) => {
+//   console.log(element, index, array);
+//   return element + 5;
+// });
+// console.log(returnMap);
+// console.log("-----------------------------");
+
+// //! filter(callbackFunc ) :- Returns the elements of an array that meet the condition specified in a callback function.
+// console.log("---------- Filter--------- ---------")
+
+// let returnFilter = arr1.filter((element, index, array) => {
+//   return element % 20 == 0;
+// });
+// console.log(returnFilter);
+
+// //! find(callbackFunc ) :- Returns the value of the first element in the array where predicate is true, and undefined otherwise.
+// console.log("---------- Find-----------------")
+
+// let returnFind = arr1.find((element, index, array) => {
+//   return element >20; // output:- 30 a single value 
+// });
+// console.log(returnFind)
+// console.log(arr1)
+
+
+// //! findIndex(callbackFunc ) :- Returns the index of the first element in the array where predicate is true, and -1 otherwise.
+// console.log("---------- FindIndex----------------------")
+
+// let returnFindIndex = arr1.findIndex((element, index, array) => {
+//   return element >20; // output:- 30 a single value 
+// });
+// console.log(returnFindIndex)
+// console.log(arr1)
+
+
+// //! reduce( callbackFunc ) :- Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.
+// console.log("---------- Reduce--------------------------")
+
+// let arr4 = [10,20,30,40,50,60];
+// let returnReduce = arr4.reduce((accumulator,element, index, array) => {
+//   return accumulator+element; 
+// },0);
+// console.log(returnReduce)
+
+//! toString() :- Returns a string representation of an array.
+// let str1 = arr4.toString();
+// console.log(str1);
+
+//! join() :- Adds all the elements of an array into a string, separated by the specified separator string.
+// let str2 = arr4.join(" a ")
+// console.log(str2)
+
+// //! split();
+// let str4 = "hello";
+// console.log(str4.split(""))
+
+
+// function palindrome (word){
+//   let output = word.split("").reverse().join("");
+//   return output===word ? true : false;
+// }
+// console.log(palindrome("abcd"));
+// console.log(palindrome("racecar"))
+
+// Array Destructuring 
+// let arr1 = [10,20,30,40,50];
+// let [n1,n2,n3,n4,n5] = arr1;
+// console.log(n1,n5)
+
+// let arr2 = [100,200,300,400,500];
+// Skiping the element while destructuring 
+// let [,a1,,a2]=arr2;
+// console.log(a1, a2, )
+
+// Nested array 
+// let arr3= [1000,2000,[3000,4000],5000];
+// let [b1,,[,b2],b3]=arr3
+// console.log(b1,b2,b3)
+
+// Array of object 
+// let arr4 = ["hello", {id:1 , fname:"john", lname:"Doe"}];
+// let [s1, {fname}]=arr4
+// console.log(s1, fname);
+
+//! Rest and Spread Operators : ...variable
+// rest
+// function demo1(p1,p2,...p3){ // p3 store rest of the value after 20 and it must be in last 
+//   console.log(p1,p2,p3)
+//   console.log(arguments) //<- array like object , not pure array
+// }
+// demo1(10,20,30,40,50,60,70,80,90)
+// let arr5 = [10,20,30,40,50,60,70,80,90];
+// let [x1, ...x2]=arr5
+// console.log(x1,x2) // x2 is <- rest operatrated
+
+// !Spread is used for unpacking an array while rest is used for packing 
+// let arr6 = [100,200,300,400,500];
+// console.log(...arr6) 
+// let arr7 = [...arr6];// <---copy elements
+// console.log(arr7)// <--- Spread unpack 
+
+
+// rest and spread in object 
+// let obj1 = {
+//   id:1,
+//   fname:"jane"
+// }
+// let obj2 = {
+//   ...obj1,
+//   lname:"Doe"
+// }
+
+// console.log(obj1,obj2)
+
+//! String Methods
+// let str1 = "Saurav"
+// console.log(`i am ${str1}`);
+
+// let str = "java Script"
+
+// Property
+// console.log(str.length)
+// console.log(str[0])
+
+// //! String.slice(StratIndex,LastIndex+1);
+// console.log(str.slice(0,4))
+// console.log(str.slice(4))
+// console.log(str.slice(-11,-6))
+// console.log(str.slice(-6,11))
+
+// let description  = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ducimus debitis at, architecto deserunt quisquam ratione voluptatem nulla soluta eum, necessitatibus repudiandae officia consectetur fugit aspernatur! Eaque, porro enim laboriosam fugit autem qui deleniti? Sed, porro numquam cumque consectetur aut molestias quasi obcaecati officiis ea reiciendis voluptatem eligendi rerum voluptate ipsam placeat necessitatibus itaque officia deleniti reprehenderit expedita incidunt accusantium veniam soluta? Velit maiores natus eius praesentium delectus aut voluptates. Blanditiis, non libero aspernatur hic rerum modi quaerat minima debitis ab? Ullam, quod quo explicabo placeat enim neque!"
+// console.log(`${description.slice(0,51)}...`)
+
+// //! String.substring(StratIndex,LastIndex+1); similar to slice but do not accept negative indexes
+// console.log(str.substring(0,4));
+
+// //! str.substr(startIndex , length);
+// console.log(str.substr(0,4));
+
+
+// let str2 = "i love python";
+// console.log(str2.replace("python","JavaScript")); //i love JavaScript
+// console.log(str2) //i love python
+
+// let str3 = "i love Python. Python is Great";
+// console.log(str3.replaceAll("Python", "JavaScript"))
+
+// console.log("    saurav    ".trim())
+
+// let phoneNo = "88466105445";
+// console.log(phoneNo.slice(0,6).padEnd(10,"X"))
+// console.log(phoneNo.slice(6).padStart(10,"X"))
+
+// let str4 = "JavaScript"
+// console.log(str4.charAt(3))
+
+// //! Str.charCodeAt(i) for ascii of that character of the index
+// console.log(str4.charCodeAt(0))
+
+// //! str.toUpperCase();
+// console.log(str4.toUpperCase())
+// //! str.toLowerCase();
+// console.log(str4.toLowerCase());
+
+// console.log(str4.includes("Java"))
+
+// console.log(str4.indexOf("a"))
+
+// let str5 = "React is library of JavaScript"
+// console.log(str5.split(" "))
+
+//! TIMER FUNCTIONS
+
+// //! setInterval( callback , intervalTime )
+// let intervalID = setInterval(() => {
+//   console.log("Hiii");
+// }, 2000);
+
+// console.log("IntervalID is", intervalID);
+
+// //! setTimeout( callback , timeOut )
+// setTimeout(() => {
+//   console.log("Byee");
+// }, 12000);
+
+// setTimeout(() => {
+//   clearInterval(intervalID);
+//   console.log("Interval Stopped");
+// }, 8000);
+
+//! PROMISE
+
+// const p1 = new Promise((resolve, reject) => {
+//   if (10 > 2) {
+//     resolve("Hello World");
+//   } else {
+//     reject("Bye Bye");
+//   }
+// });
+
+// console.log(p1);
+
+// p1.then((data) => {
+//   document.writeln(`<h3>${data}</h3>`);
+// });
+
+// p1.catch((err) => {
+//   document.writeln(`<h3>${err}</h3>`);
+// });
+
+// p1.finally(() => {
+//   console.log("I am finally block");
+// });
+
+//! PROMISE WITH THEN, CATCH AND FINALLY
+// const API_URL = "https://dummyjson.com/todos";
+
+// let p1 = fetch(API_URL);
+// console.log(p1);
+
+// /*
+// Promise{
+// Prototype: [[Promise]],
+// PromiseState : "fullfilled",
+// PromiseResult : Response
+// }
+// */
+
+// p1.then((response) => {
+//   let p2 = response.json();
+//   console.log(p2);
+
+//   p2.then((data) => {
+//     console.log(data.todos);
+//   });
+
+//   p2.catch((err) => {
+//     console.log(err);
+//   });
+// });
+
+// p1.catch((err) => {
+//   console.log(err);
+// });
+
+//! PROMISE WITH ASYNC AND AWAIT
+// const API_URL = "https://dummyjson.com/todos";
+
+// async function getTodos(url) {
+//   try {
+//     let response = await fetch(url);
+//     let data = await response.json();
+//     console.log(data); // {todos: Array(30), total: 254, skip: 0, limit: 30}
+
+//     displayTodos(data.todos); // Array(30)
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
+// getTodos(API_URL);
+
+// function displayTodos(allTodos) {
+//   console.log(allTodos);
+
+//   allTodos.forEach((ele) => {
+//     let { id, userId, todo, completed } = ele;
+
+//     document.writeln(`
+//       <div class = 'todo'>
+//         <h4>${todo}</h4>
+//         <span>${completed ? "Completed" : "Pending"}</span>
+//       </div>
+//       `);
+//   });
+// }

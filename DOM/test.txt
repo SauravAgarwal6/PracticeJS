@@ -1,0 +1,267 @@
+Which of the following is NOT a JavaScript token?
+*
+1 point
+a) Keyword
+b) Identifier
+c) Literal
+d) Classloader
+  2. What is the type of typeof true in JavaScript?  
+*
+1 point
+a) boolean
+b) string
+c) object
+d) undefined
+  3. What is the output of the following code?
+
+ var a;
+console.log(a);
+*
+1 point
+a) undefined
+b) null
+c) ReferenceError
+d) 0
+  4. Which of the following is the correct type of null in JavaScript?  
+*
+1 point
+a) null
+b) object
+c) undefined
+d) number
+  5. What will be the output?  
+
+var s1 = Symbol("A");
+var s2 = Symbol("A");
+console.log(s1 == s2);
+*
+1 point
+a) true
+b) false
+c) undefined
+d) error
+  6. Which variable type allows re-declaration in JavaScript?  
+*
+1 point
+a) var
+b) let
+c) const
+d) none
+  7. What is the output?  
+
+console.log(a);
+var a = 20;
+*
+1 point
+a) 20
+b) undefined
+c) null
+d) ReferenceError
+  8. Which of the following variables is block-scoped?  
+*
+1 point
+a) var
+b) let
+c) const
+d) Both b and c
+  9. What will happen?
+
+  if(true){
+    var x = 10;
+    let y = 20;
+}
+console.log(x, y);
+*
+1 point
+a) 10, 20
+b) 10, undefined
+c) 10, ReferenceError
+d) ReferenceError
+  10. Which statement about hoisting is true?  
+*
+1 point
+a) Only var is hoisted with undefined.
+b) let and const are hoisted but kept in Temporal Dead Zone.
+c) Functions are hoisted fully.
+d) All of the above.
+  11. What will be the output?  
+
+console.log(typeof NaN);
+*
+1 point
+a) NaN
+b) undefined
+c) number
+d) object
+12. Which of the following is NOT a primitive data type?
+*
+1 point
+a) Boolean
+b) Number
+c) Object
+d) Symbol
+  13. What is the result of this function call?
+
+  function sum(a=0, b=0){
+   return a+b;
+}
+console.log(sum(5));
+*
+1 point
+a) 5
+b) NaN
+c) undefined
+d) Error
+  14. Which function type is hoisted?  
+*
+1 point
+a) Named function
+b) Function expression
+c) Arrow function
+d) Anonymous function
+  15. What is the output?
+
+  console.log(x);
+let x = 5;
+*
+1 point
+a) 5
+b) undefined
+c) ReferenceError
+d) null
+  16. In JavaScript, closures are created when:  
+*
+1 point
+a) A function returns another function accessing parent’s variables
+b) A variable is declared using const
+c) A function calls itself recursively
+d) We use arrow functions
+  17. What is the output?
+
+  function parent(){
+   var money = 100;
+   function child(){
+       console.log(money);
+   }
+   return child;
+}
+let fn = parent();
+fn();
+*
+1 point
+a) undefined
+b) 100
+c) ReferenceError
+d) null
+  18. Which of the following is NOT a valid way to declare a function?  
+*
+1 point
+a) function greet(){}
+b) let greet = function(){}
+c) const greet = () => {}
+d) new Function greet(){}
+  19. Which of the following is true about arrow functions?  
+*
+1 point
+a) They do not have their own this.
+b) They are always hoisted.
+c) They support function overloading.
+d) They must always return a value.
+  20. What is the output?
+
+  const mul = (a, b) => a*b;
+console.log(mul(2,5));
+*
+1 point
+a) 10
+b) 7
+c) undefined
+d) Error
+  21. Which of the following is an example of a higher-order function?  
+*
+1 point
+a) A function returning another function
+b) A function taking another function as an argument
+c) Both a and b
+d) None
+  22. What is the output?  
+
+function calc(a,b,callback){
+   return callback(a,b);
+}
+function sum(x,y){ return x+y; }
+console.log(calc(5,10,sum));
+*
+1 point
+a) 15
+b) undefined
+c) NaN
+d) Error
+  23. Which keyword is used to prevent re-declaration of variables?  
+*
+1 point
+a) var
+b) let
+c) const
+d) Both b and c
+  24. Which of the following is NOT a feature of var?  
+*
+1 point
+a) Function-scoped
+b) Allows re-declaration
+c) Block-scoped
+d) Hoisted with undefined
+  25. What will be the output?  
+
+console.log(typeof typeof 10);
+*
+1 point
+a) number
+b) string
+c) object
+d) undefined
+  26. What is JavaScript currying?  
+*
+1 point
+a) Dividing a function into multiple nested functions returning other functions
+b) Using arrow functions only
+c) Making async calls
+d) None
+  27. What will be the output?
+
+  var x = function(){
+   console.log("Hello");
+}
+console.log(typeof x);
+*
+1 point
+a) function
+b) object
+c) undefined
+d) string
+  28. What is the default value of an uninitialized variable declared using var?  
+*
+1 point
+a) null
+b) undefined
+c) 0
+d) ReferenceError
+  29. Which is true about const?  
+*
+1 point
+a) It cannot be reassigned.
+b) It must be initialized at the time of declaration.
+c) It is block scoped.
+d) All of the above.
+  30. What is the output?  
+
+function greet(){
+   return "Hello JS";
+}
+console.log(typeof greet);
+*
+1 point
+a) function
+b) object
+c) string
+d) undefined
