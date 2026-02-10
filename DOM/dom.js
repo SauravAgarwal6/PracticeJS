@@ -1,109 +1,247 @@
-//! Dom Selector are of 5 types
+// ! DOM SELECTORS ARE OF 5 TYPES, USED TO TARGET HTML ELEMENTS IN JAVASCRIPT
 
-//! 1) document.getElementById() :- Returns the first element within node's descendants whose ID is elementId.
-// let head2 = document.getElementById("head2");
-// console.log(head2)
+//! 1) document.getElementById() : Returns the first element within node's descendants whose ID is elementId else returns null.
 
-// console.log(head2.textContent)
-// console.log(head2.innerHTML)
-// //! 2) document.getElementsByClassName() :- The getElementsByClassName method of of all child elements which have all of the given class name(s).
-// let h3tag = document.getElementsByClassName("head3");
-// console.log(h3tag)
-// console.log(h3tag[1].textContent)
+// let h2Tag = document.getElementById("head2");
+// console.log(h2Tag);
 
-// if we want to check array is pure or not -> Array.isArray() return boolean
-// console.log(Array.isArray(h3tag))
+// console.log(h2Tag.textContent);
+// console.log(h2Tag.innerHTML);
 
-// convert impure array to pure array  -> Array.from() return pure array
-// let pureArray = Array.from(h3tag)
-// console.log(pureArray)
+// //! 2) document.getElementsByClassName()
+// let h3Tags = document.getElementsByClassName("head3");
+// console.log(h3Tags); // HTMLCollection(3) [h3.head3, h3.head3, h3.head3]
 
-// //! 3) document.getElementsByTagName() :- The getElementsByTagName method of The complete document is searched, including the root node.
-// let tagCollection  = document.getElementsByTagName("h3");
-// console.log(tagCollection)
+// console.log(h3Tags[1].textContent);
 
-// //! 4) document.querySelector() :- Returns the first element that is a descendant of node that matches selectors.
-// let ele1 = document.querySelector("#head2")
-// console.log(ele1)
+//! if we want to check array is pure or not -> Array.isArray() returns boolean
+// console.log(Array.isArray(h3Tags)); // false
 
-// let ele2 = document.querySelector(".head3")
-// console.log(ele2)
+//! convert impure array to pure array -> Array.from() returns pure array
+// let pureArray = Array.from(h3Tags);
+// console.log(pureArray);
 
-// let ele3 = document.querySelector("h3")
-// console.log(ele3)
+// //! 3) document.getElementsByTagName()
+// let tagsCollection = document.getElementsByTagName("h3");
+// console.log(tagsCollection); // HTMLCollection(3) [h3.head3, h3.head3, h3.head3]
 
-// id > class > tagname  Priority
+// //! 4) document.querySelector(" id , class , tagname ")
 
-// let ele4 = document.querySelector("h3,.head3,#head2") 
-// console.log(ele4)
-// //! 5)document.querySelectorAll()
+// let ele1 = document.querySelector("#head2");
+// console.log(ele1);
 
+// let ele2 = document.querySelector(".head3");
+// console.log(ele2);
+
+// let ele3 = document.querySelector("h3");
+// // console.log(ele3);
+
+// // priority : id > class > tagname
+// let ele4 = document.querySelector("h3 ,#head2, .head3");
+// // console.log(ele4);
+
+//! 5) document.querySelectorAll()
 // let ele5 = document.querySelectorAll(".head3");
-// console.log(ele5)
-//! Similarity 
-// Both are impure array 
-//! Difference Between HtMlCollection and NodeList
+// console.log(ele5); // NodeList[h3.head3, h3.head3, h3.head3]
 
-// cannot use any of the array method in html collection 
-// can use forEach() method in nodelist 
+// WHENEVER WE USE getElementsByClassName or tagName we get HTMLCollection
+// WHENEVER WE USE querySelectorAll we get NodeList
 
-// html collection is called Live Collection 
-// NodeList is called static collection 
+//! SIMIRAILTY
+// BOTH ARE IMPURE ARRAY
 
-// const collection = document.getElementsByTagName('div')
-// const list = document.querySelectorAll('div')
-// console.log("Html collection -->",collection.length)
-// console.log("Node list -->",list.length)
-// for(let  i  = 0 ; i  < 5 ; i++){
-//     const divTag = document.createElement("div")
-//     divTag.textContent = "div 4"
-//     console.log(divTag)
-//     document.body.appendChild(divTag)
+//! DIFFERENCE BETWEEN HTMLCollection and NodeList
+
+// CANNOT USE ANY OF THE ARRAY METHODS IN HTMLCollection
+// CAN USE forEach() method in NodeList
+
+// HTML COLLECTION IS CALLED LIVE COLLECTION
+// NODE LIST IS CALLED STATIC COLLECTION
+
+//! EXAMPLE OF STATIC AND LIVE COLLECTION
+// const collection = document.getElementsByTagName("div");
+// const list = document.querySelectorAll("div");
+
+// console.log("HTMLCollection -->", collection.length); // 3
+// console.log("NodeList -->", list.length); // 3
+
+// // creating HTML Element dynamically
+// for (let i = 0; i < 5; i++) {
+//   const divTag = document.createElement("div");
+//   divTag.textContent = "div 4";
+//   console.log(divTag); // <div>div 4</div>
+//   document.body.appendChild(divTag);
 // }
-// console.log("Html collection -->",collection.length)// this is (Live so 8 div element)
-// console.log("Node list -->",list.length) // this is static (so 3 div )
 
-//! Dom Manipulation 
-const tableTag = document.createElement("table") 
+// console.log("HTMLCollection -->", collection.length); // 8 (LIVE)
+// console.log("NodeList -->", list.length); // 3 (STATIC)
 
-const trTag1  = document.createElement("tr")
-const trTag2  = document.createElement("tr")
-const trTag3  = document.createElement("tr")
+// //! DOM MANIPULATION
+// const mainContainer = document.querySelector("#table-container");
+// const tableTag = document.createElement("table");
 
-const thTag1  = document.createElement("th")
-const thTag2  = document.createElement("th")
-const thTag3  = document.createElement("th")
+// const trTag1 = document.createElement("tr");
+// const trTag2 = document.createElement("tr");
+// const trTag3 = document.createElement("tr");
 
-const tdTag1  = document.createElement("td")
-const tdTag2  = document.createElement("td")
-const tdTag3  = document.createElement("td")
-const tdTag4  = document.createElement("td")
-const tdTag5  = document.createElement("td")
-const tdTag6  = document.createElement("td")
-//! these are deprecated 
-tableTag.border = 1
-tableTag.cellPadding = 5
-tableTag.cellSpacing = 0
+// const thTag1 = document.createElement("th");
+// const thTag2 = document.createElement("th");
+// const thTag3 = document.createElement("th");
 
-thTag1.textContent = "id";
-thTag2.textContent = "fname";
-thTag3.textContent = "lname";
+// const tdTag1 = document.createElement("td");
+// const tdTag2 = document.createElement("td");
+// const tdTag3 = document.createElement("td");
+// const tdTag4 = document.createElement("td");
+// const tdTag5 = document.createElement("td");
+// const tdTag6 = document.createElement("td");
 
-tdTag1.textContent = 1
-tdTag2.textContent = "john"
-tdTag3.textContent = "doe"
+// //! adding attributes
+// tableTag.border = "1";
+// tableTag.cellSpacing = "0";
+// tableTag.cellPadding = "5";
 
-tdTag4.textContent = 2
-tdTag5.textContent = "jane"
-tdTag6.textContent = "doe"
-trTag1.append(thTag1,thTag2,thTag3)
-trTag2.append(tdTag1,tdTag2,tdTag3)
-trTag3.append(tdTag4,tdTag5,tdTag6)
-tableTag.append(trTag1,trTag2,trTag3)
-let tableContainer = document.querySelector("#tableContainer")
-tableContainer.appendChild(tableTag)
+// //! adding textContent
+// thTag1.textContent = "ID";
+// thTag2.textContent = "FNAME";
+// thTag3.textContent = "LNAME";
 
-console.log(tableTag)
+// tdTag1.textContent = "1";
+// tdTag2.textContent = "John";
+// tdTag3.textContent = "Doe";
+// tdTag4.textContent = "2";
+// tdTag5.textContent = "Jane";
+// tdTag6.textContent = "Doe";
 
-  const mul = (a, b) => a*b;
-console.log(mul(2,5));
+// //! append as a child
+// trTag1.append(thTag1, thTag2, thTag3);
+// trTag2.append(tdTag1, tdTag2, tdTag3);
+// trTag3.append(tdTag4, tdTag5, tdTag6);
+
+// tableTag.append(trTag1, trTag2, trTag3);
+
+// mainContainer.append(tableTag);
+
+//! EVENTS :  ACTIONS PERFORMED BY THE USER
+
+//! MOUSE EVENTS
+// onclick
+function singleClick() {
+  console.log("single clicked");
+}
+
+// ondblclick
+function doubleClick() {
+  console.log("Double CLick");
+}
+
+// onmouseenter
+function cursorEnter() {
+  console.log("cursor entered");
+}
+
+// onmouseleave
+function cursorExit() {
+  console.log("cursor left");
+}
+
+// onmousemove
+function cursorMove() {
+  console.log("cursor Moved");
+}
+
+//! KEYBOARD EVENTS
+// onkeydown
+function keyPressed() {
+  console.log("key is Pressed");
+}
+
+// onkeyup
+function keyReleased() {
+  console.log("key is Released");
+}
+
+// onchange
+function inputChanged() {
+  console.log("input is changed");
+}
+
+//! FORM EVENTS
+// onsubmit <-- always used in form tag
+function handleForm1(e) {
+  e.preventDefault(); // stops page reload
+
+  //! WAY 1
+  //   let formData = {
+  //     email: e.target[0].value,
+  //     password: e.target[1].value,
+  //   };
+  //   console.log(formData);
+
+  //! WAY 2
+  let email = document.querySelector("#email");
+  let password = document.querySelector("#password");
+
+  let formData = {
+    email: email.value,
+    password: password.value,
+  };
+  console.log(formData);
+}
+
+//! WINDOW EVENTS
+// onload{
+function pageLoad() {
+  console.log("Page is loaded");
+}
+
+// onscroll
+function pageScroll() {
+  console.log("Page scrolled");
+}
+
+// ! addEventListener( "event" ,  callbackFunc , useCapture )
+
+const h1Tag = document.createElement("h1");
+h1Tag.textContent = "Learn addEventListener";
+
+h1Tag.addEventListener("click", () => {
+  console.log("H1 clicked");
+  h1Tag.style.backgroundColor = "red";
+});
+
+// document.body.append(h1Tag);
+
+const signupForm = document.getElementById("signup-form");
+
+signupForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const usernameInput = document.getElementById("usernameInput");
+  const emailInput = document.getElementById("emailInput");
+  const passwordInput = document.getElementById("passwordInput");
+
+  const userData = {
+    username: usernameInput.value,
+    email: emailInput.value,
+    password: passwordInput.value,
+  };
+
+  console.log(userData);
+});
+
+// ! RAINBOW TASK
+const divs = document.querySelectorAll("div");
+
+// NodeList[div,div,div,div,...]
+
+divs.forEach((ele) => {
+
+  ele.addEventListener("mouseenter", () => {
+    ele.style.backgroundColor = ele.textContent;
+  });
+
+  ele.addEventListener("mouseleave", () => {
+    ele.style.backgroundColor = "white";
+  });
+
+});
